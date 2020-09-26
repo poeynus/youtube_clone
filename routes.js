@@ -29,7 +29,7 @@ const routes = {
   users: USERS,
   userDetail: (id) => {
     if (id) {
-      return `/users/ + ${id}`;
+      return `/users/${id}`;
     } else {
       return USER_DETAIL;
     }
@@ -40,13 +40,25 @@ const routes = {
   upload: UPLOAD,
   videoDetail: (id) => {
     if (id) {
-      return `/videos/ + ${id}`;
+      return `/videos/${id}`;
     } else {
       return VIDEO_DETAIL;
     }
   },
-  editVideo: EDIT_VIDEO,
-  deleteVideo: DELETE_VIDEO,
+  editVideo: (id) => {
+    if (id) {
+      return `/videos/${id}/edit`;
+    } else {
+      return EDIT_VIDEO;
+    }
+  },
+  deleteVideo: (id) => {
+    if (id) {
+      return `/videos/${id}/delete`;
+    } else {
+      return DELETE_VIDEO;
+    }
+  },
 };
 
 export default routes;
